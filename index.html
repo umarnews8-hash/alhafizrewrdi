@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحافظ دیسی ریوڑی — AL-HAFIZ DESI REWARI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #064B37;
+            --gold: #D5A944;
+            --cream: #FFFAF0;
+            --dark: #1E2923;
+        }
+        body {
+            font-family: 'Noto Nastaliq Urdu', serif, sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--emerald);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            color: var(--gold);
+            margin: 0;
+            font-size: 26px;
+        }
+        .container {
+            max-width: 550px;
+            margin: 15px auto;
+            padding: 12px;
+        }
+        .banner {
+            background-color: var(--emerald);
+            color: white;
+            padding: 18px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .banner h2 { color: var(--gold); margin: 0 0 8px 0; font-size: 22px; }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #eee;
+        }
+        .price { font-weight: bold; color: var(--emerald); font-size: 18px; }
+        .btn-add {
+            background-color: var(--gold);
+            color: black;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn-order {
+            background-color: #25D366;
+            color: white;
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        .selected-box {
+            background: #fff8e7;
+            border: 1.5px solid var(--gold);
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>الحافظ دیسی ریوڑی</h1>
+    <small style="color: #bbb;">AL-HAFIZ DESI REWARI</small>
+</header>
+
+<div class="container">
+    <div class="banner">
+        <h2>خالص دیسی ذائقہ، روایتی مٹھاس</h2>
+        <p style="margin:0; font-size: 13px; color: #ddd;">منچن آباد ، ضلع بہاولنگر | پورے پاکستان میں ڈیلیوری</p>
+    </div>
+
+    <h3 style="color: var(--emerald);">روایتی دیسی ریوڑی پیکٹس:</h3>
+
+    <div class="card">
+        <div>
+            <strong>چھوٹا پیکج (125g)</strong><br>
+            <span class="price">PKR 250</span>
+        </div>
+        <button class="btn-add" onclick="selectItem('چھوٹا پیکج (125g)', 250)">منتخب کریں</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <strong>عام پیکج (250g)</strong><br>
+            <span class="price">PKR 500</span>
+        </div>
+        <button class="btn-add" onclick="selectItem('عام پیکج (250g)', 500)">منتخب کریں</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <strong>میڈیم پیکج (500g)</strong><br>
+            <span class="price">PKR 1000</span>
+        </div>
+        <button class="btn-add" onclick="selectItem('میڈیم پیکج (500g)', 1000)">منتخب کریں</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <strong>فیملی پیکج (1kg)</strong><br>
+            <span class="price">PKR 2000</span>
+        </div>
+        <button class="btn-add" onclick="selectItem('فیملی پیکج (1kg)', 2000)">منتخب کریں</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <strong>ویلیو پیکج (2kg)</strong><br>
+            <span class="price">PKR 4000</span>
+        </div>
+        <button class="btn-add" onclick="selectItem('ویلیو پیکج (2kg)', 4000)">منتخب کریں</button>
+    </div>
+
+    <div class="selected-box" id="summaryBox">
+        منتخب کردہ پیکٹ: <strong id="selectedName">عام پیکج (250g)</strong><br>
+        کُل رقم: <strong id="selectedPrice" style="color: var(--emerald); font-size: 18px;">PKR 500</strong>
+    </div>
+
+    <div style="background: white; padding: 16px; border-radius: 12px; border: 1px solid #ddd;">
+        <h3 style="margin-top: 0; color: var(--emerald);">اپنی ڈیلیوری کی معلومات درج کریں:</h3>
+        
+        <label>پورا نام (Full Name) *</label>
+        <input type="text" id="custName" placeholder="مثلاً: محمد آصف">
+
+        <label>موبائل / واٹس ایپ نمبر *</label>
+        <input type="tel" id="custPhone" placeholder="03XXXXXXXXX">
+
+        <label>شہر کا نام (City) *</label>
+        <input type="text" id="custCity" placeholder="مثلاً: بہاولنگر">
+
+        <label>مکمل پتہ (Address) *</label>
+        <textarea id="custAddress" rows="2" placeholder="گلی، محلہ، مکان نمبر"></textarea>
+
+        <label>ادائیگی کا طریقہ:</label>
+        <select id="payMethod">
+            <option value="Cash on Delivery">Cash on Delivery (نقد ادائیگی)</option>
+            <option value="JazzCash (03007584282)">JazzCash (03007584282)</option>
+            <option value="Easypaisa (03007584282)">Easypaisa (03007584282)</option>
+        </select>
+
+        <button class="btn-order" onclick="sendWhatsAppOrder()">آرڈر کنفرم کریں (Confirm Order) 💬</button>
+    </div>
+</div>
+
+<script>
+    let currentItem = "عام پیکج (250g)";
+    let currentPrice = 500;
+
+    function selectItem(name, price) {
+        currentItem = name;
+        currentPrice = price;
+        document.getElementById('selectedName').innerText = name;
+        document.getElementById('selectedPrice').innerText = "PKR " + price;
+    }
+
+    function sendWhatsAppOrder() {
+        let name = document.getElementById('custName').value.trim();
+        let phone = document.getElementById('custPhone').value.trim();
+        let city = document.getElementById('custCity').value.trim();
+        let address = document.getElementById('custAddress').value.trim();
+        let payment = document.getElementById('payMethod').value;
+
+        if (!name || !phone || !city || !address) {
+            alert("براہ کرم ڈیلیوری کی تمام معلومات درج کریں!");
+            return;
+        }
+
+        let message = "📦 *الحافظ دیسی ریوڑی — نیا آن لائن آرڈر* 📦\n" +
+            "--------------------------------\n" +
+            "👤 *کسٹمر کا نام:* " + name + "\n" +
+            "📞 *فون نمبر:* " + phone + "\n" +
+            "🏙️ *شہر:* " + city + "\n" +
+            "📍 *مکمل پتہ:* " + address + "\n\n" +
+            "🛒 *منتخب کردہ پیکٹ:* " + currentItem + "\n" +
+            "💰 *کُل قابلِ ادائیگی رقم:* *PKR " + currentPrice + "*\n" +
+            "💳 *ادائیگی کا طریقہ:* " + payment + "\n" +
+            "--------------------------------\n" +
+            "برائے مہربانی میرے اس آرڈر کی تصدیق فرمائیں۔ شکریہ!";
+
+        let encodedMsg = encodeURIComponent(message);
+        let whatsappUrl = "https://wa.me/923007584282?text=" + encodedMsg;
+
+        window.location.href = whatsappUrl;
+    }
+</script>
+
+</body>
+</html>
